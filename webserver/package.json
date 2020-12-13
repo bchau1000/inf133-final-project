@@ -1,0 +1,23 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "PokeAPI Communication",
+  "main": "server.js",
+  "scripts": {
+    "test": "server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bchau1000/inf133-final-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bchau1000/inf133-final-project/issues"
+  },
+  "homepage": "https://github.com/bchau1000/inf133-final-project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
