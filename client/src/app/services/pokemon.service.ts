@@ -14,4 +14,10 @@ export class PokemonService {
     return Promise.resolve(this.http.get(this.baseUrl + endpoint).toPromise());
   }
 
+  // getArtist(id:string):Promise<PokemonData> {
+  //   return this.sendRequestToExpress('/artist/'+encodeURIComponent(artistId)).then((data) => {
+  //     var arr = new ArtistData(data);
+  //     return arr;
+  //   });
+  // }
 }
