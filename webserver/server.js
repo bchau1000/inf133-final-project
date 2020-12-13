@@ -38,7 +38,6 @@ app.get('/all-pokemon', (req, res) => {
 
 app.get('/pokemon/:id', (req, res) => {
     var id = req.params.id;
-    console.log('https://pokeapi.co/api/v2/pokemon/' + id)
     requestData('https://pokeapi.co/api/v2/pokemon/' + id, res);
 })
 
