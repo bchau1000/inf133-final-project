@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   name:string;
   pokemon:PokemonData;
   constructor(private route:ActivatedRoute, private pokeService: PokemonService) { 
-    this.name ="pidgey";
+    this.name ="";
     this.pokemon = new PokemonData("test","test");
   }
 
@@ -20,7 +20,6 @@ export class HomePageComponent implements OnInit {
   }
 
   getPokemon(){
-    console.log(this.name);
     this.pokeService.getPokemon(this.name).then((data)=>{
       this.pokemon = data;
       console.log(this.pokemon)

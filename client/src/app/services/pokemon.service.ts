@@ -16,9 +16,14 @@ export class PokemonService {
 
   getPokemon(name:string):Promise<PokemonData> {
     return this.requestData('/pokemon/'+encodeURIComponent(name)).then((data) => {
-      console.log(data.name);
-      var pokemon = new PokemonData(data.name,data.front_default);
+      var pokemon = new PokemonData(data.name,data.sprites.front_default);
       return pokemon;
+    });
+  }
+
+  getType(name:string):Promise<Array<any>> {
+    return this.requestData('/type/'+encodeURIComponent(name)).then((data) => {
+      return data.pokemon;
     });
   }
 }

@@ -45,6 +45,11 @@ app.get('/pokemon/:id', (req, res) => {
     requestData('https://pokeapi.co/api/v2/pokemon/' + id, res);
 })
 
+app.get('/type/:id', (req, res) => {
+    var id = req.params.id;
+    requestData('https://pokeapi.co/api/v2/type/' + id, res);
+})
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })

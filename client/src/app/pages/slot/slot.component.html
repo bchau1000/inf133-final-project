@@ -1,0 +1,19 @@
+<style>
+    img {
+        border-radius: 25px;
+        background: grey;
+        border: 3px solid black;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div style="text-align: center;">
+        <img src={{slot1}} class="solid " width="100 " height="100 " alt="slot1">
+        <img src={{slot2}} class="solid " width="100 " height="100 " alt="slot2">
+        <img src={{slot3}} class="solid " width="100 " height="100 " alt="slot3">
+    </div>
+    <div style="text-align: center;">
+        <button (click)="rand() " class="block">SPIN!!</button>
+    </div>
+</body>
