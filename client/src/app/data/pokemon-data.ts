@@ -1,11 +1,12 @@
 export class PokemonData {
-    id:string;
+    id:number;
     name:string;
+    imageURL:string;
 
-	constructor(id:string) {
-		//Assign a random (unique) ID. This may be useful for comparison (e.g., are two logged entries the same).
-        this.id = id;
-        this.name ="";
-	}
+    constructor(name:string, imageURL:string) {
+        this.id = 0;
+        this.name = name;
+        this.imageURL = imageURL;
+    }
 
 }

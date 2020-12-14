@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import {PokemonData} from '../data/pokemon-data';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,10 +14,11 @@ export class PokemonService {
     return Promise.resolve(this.http.get(this.baseUrl + endpoint).toPromise());
   }
 
-  // getArtist(id:string):Promise<PokemonData> {
-  //   return this.sendRequestToExpress('/artist/'+encodeURIComponent(artistId)).then((data) => {
-  //     var arr = new ArtistData(data);
-  //     return arr;
-  //   });
-  // }
+  getPokemon(name:string):Promise<PokemonData> {
+    return this.requestData('/pokemon/'+encodeURIComponent(name)).then((data) => {
+      console.log(data.name);
+      var pokemon = new PokemonData(data.name,data.front_default);
+      return pokemon;
+    });
+  }
 }
