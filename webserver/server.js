@@ -1,7 +1,11 @@
 const express = require('express')
 var fetch = require('node-fetch');
+var cors = require('cors');
 const app = express()
+
 const port = 3000
+
+app.use(cors('http://localhost:4200'));
 
 function requestData(url, res) {
     fetch(url, { method: 'GET' }).then(response => {
