@@ -1,3 +1,5 @@
+import { threadId } from "worker_threads";
+
 export class PokemonData {
     id:string;
     name:string;
@@ -10,7 +12,7 @@ export class PokemonData {
         this.url = url;
     }
 
-    get imageURL(){
-        return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + this.id + '.png'
+    get sprite() {
+        return '../../assets/sprites/' + this.id + '.png';
     }
 }

@@ -6,7 +6,7 @@
 
     <div class="pagination">
       <a *ngIf="offset > 0" (click)="changePage('prev')">&laquo;</a>
-      <a href="pokedex?limit=100&offset={{page}}" *ngFor="let page of offsetValues" [ngClass]="{active: offset == page}">{{(page/100) + 1}}</a>
+      <a href="pokemon?limit=100&offset={{page}}" *ngFor="let page of offsetValues" [ngClass]="{active: offset == page}">{{(page/100) + 1}}</a>
       <a *ngIf="offset < 800" (click)="changePage('next')">&raquo;</a>
     </div>
 </div>

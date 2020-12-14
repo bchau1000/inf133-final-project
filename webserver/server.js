@@ -36,7 +36,7 @@ function requestData(url, res) {
     });
 }
 
-app.get('/pokedex/:limit/:offset', (req, res) => {
+app.get('/pokemon/:limit/:offset', (req, res) => {
     var offset = req.params.offset;
     var limit = req.params.limit;
     console.log('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset)
@@ -49,5 +49,5 @@ app.get('/pokemon/:id', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Listening at http://localhost:${port}`)
 })

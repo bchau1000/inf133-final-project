@@ -44,10 +44,10 @@ export class HomePageComponent implements OnInit {
 
   changePage(command:string){
     if(command == 'next') {
-      window.location.href = 'pokedex?limit=100&offset=' + (this.offset * 1 + 100);
+      window.location.href = 'pokemon?limit=100&offset=' + (this.offset * 1 + 100);
     }
     else{ 
-      window.location.href = 'pokedex?limit=100&offset=' + (this.offset - 100);
+      window.location.href = 'pokemon?limit=100&offset=' + (this.offset - 100);
     }
   }
 

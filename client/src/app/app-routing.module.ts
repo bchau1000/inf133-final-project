@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: 'pokedex', component: HomePageComponent},
+  { path: 'pokemon', component: HomePageComponent},
   {
     path: '',
-    redirectTo: 'pokedex',
+    redirectTo: 'pokemon',
     pathMatch: 'full'
   }
 ];

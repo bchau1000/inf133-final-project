@@ -23,7 +23,7 @@ export class PokemonService {
 
   getAllPokemon(limit:number, offset:number):Promise<PokemonData[]> {
     console.log(offset)
-    return this.requestData('/pokedex/' + limit + '/' + offset).then((data) => {
+    return this.requestData('/pokemon/' + limit + '/' + offset).then((data) => {
       var pokemon_arr: Array<PokemonData> = [];
       var length = data.results.length
 
