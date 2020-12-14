@@ -28,6 +28,7 @@ export class PokemonService {
       var length = data.results.length
 
       for(let i = 0; i < length; i++)
+      if(!data.results[i].name.includes('-'))
         pokemon_arr.push(new PokemonData(data.results[i].name, data.results[i].url))
 
       return pokemon_arr;

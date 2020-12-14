@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   allPokemon:PokemonData[];
   offset:number;
   limit:number;
-  offsetValues = [0, 100, 200, 300, 400, 500, 600, 700];
+  offsetValues = [0, 100, 200, 300, 400, 500, 600, 700, 800];
 
   constructor(private route:ActivatedRoute, private pokeService: PokemonService) { 
     this.name ="pidgey";
@@ -44,7 +44,7 @@ export class HomePageComponent implements OnInit {
 
   changePage(command:string){
     if(command == 'next') {
-      window.location.href = 'pokedex?limit=100&offset=' + (this.offset + 100);
+      window.location.href = 'pokedex?limit=100&offset=' + (this.offset * 1 + 100);
     }
     else{ 
       window.location.href = 'pokedex?limit=100&offset=' + (this.offset - 100);
