@@ -34,4 +34,12 @@ export class PokemonService {
       return pokemon_arr;
     });
   }
-}
+    getType(name:string):Promise<Array<any>> {
+      return this.requestData('/type/'+encodeURIComponent(name)).then((data) => {
+        return data.pokemon;
+      });
+    }
+  }
+
+
+
