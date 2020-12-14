@@ -36,8 +36,11 @@ function requestData(url, res) {
     });
 }
 
-app.get('/all-pokemon', (req, res) => {
-    requestData('https://pokeapi.co/api/v2/pokemon?limit=10000', res);
+app.get('/pokedex/:limit/:offset', (req, res) => {
+    var offset = req.params.offset;
+    var limit = req.params.limit;
+    console.log('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset)
+    requestData('https://pokeapi.co/api/v2/pokemon?limit=' + limit + '&offset=' + offset, res);
 })
 
 app.get('/pokemon/:id', (req, res) => {

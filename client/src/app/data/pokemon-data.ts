@@ -1,12 +1,16 @@
 export class PokemonData {
-    id:number;
+    id:string;
     name:string;
-    imageURL:string;
+    url:string;
 
-    constructor(name:string, imageURL:string) {
-        this.id = 0;
+
+    constructor(name:string, url:string) {
+        this.id = url.split('/')[6];
         this.name = name;
-        this.imageURL = imageURL;
+        this.url = url;
     }
 
+    get imageURL(){
+        return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + this.id + '.png'
+    }
 }

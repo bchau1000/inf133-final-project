@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {PokemonData} from '../data/pokemon-data';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,15 +11,26 @@ export class PokemonService {
   constructor(private http:HttpClient) { }
 
   private requestData(endpoint:string):Promise<any> {
-    console.log(this.baseUrl + endpoint)
     return Promise.resolve(this.http.get(this.baseUrl + endpoint).toPromise());
   }
 
   getPokemon(name:string):Promise<PokemonData> {
     return this.requestData('/pokemon/'+encodeURIComponent(name)).then((data) => {
-      console.log(data.name);
-      var pokemon = new PokemonData(data.name,data.front_default);
+      var pokemon = new PokemonData(data.name,data.sprites.front_default);
       return pokemon;
+    });
+  }
+
+  getAllPokemon(limit:number, offset:number):Promise<PokemonData[]> {
+    console.log(offset)
+    return this.requestData('/pokedex/' + limit + '/' + offset).then((data) => {
+      var pokemon_arr: Array<PokemonData> = [];
+      var length = data.results.length
+
+      for(let i = 0; i < length; i++)
+        pokemon_arr.push(new PokemonData(data.results[i].name, data.results[i].url))
+
+      return pokemon_arr;
     });
   }
 }

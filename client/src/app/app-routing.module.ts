@@ -3,7 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent}
+  { path: 'pokedex', component: HomePageComponent},
+  {
+    path: '',
+    redirectTo: 'pokedex',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

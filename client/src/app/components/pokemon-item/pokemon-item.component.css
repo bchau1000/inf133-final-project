@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.pokemon-item {
+    height: 120px;
+    width: 96px;
+    background-color: rgb(221, 211, 211); 
+}
+
+.pokemon-img {
+    height: 96px;
+    width: 96px;
+}
+
+.pokemon-label {
+    height: 24px;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+
+.pokemon-item:hover {
+    background-color: grey;
+}

@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent
+    HomePageComponent,
+    PokemonItemComponent
   ],
   imports: [
     BrowserModule,
