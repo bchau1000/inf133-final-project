@@ -15,7 +15,7 @@ pokemon:PokemonData;
   constructor(private route: ActivatedRoute,private pokeService: PokemonService) {
     this.name = "";
     this.sprite = "../../../assets/defaultquestion.png"
-    this.pokemon = new PokemonData("test","test");
+    this.pokemon = new PokemonData(-1,"");
    }
 
   ngOnInit(): void {
@@ -25,9 +25,9 @@ pokemon:PokemonData;
     this.getPokemon(id);
   }
   getPokemon(name:string){
-    this.pokeService.getPokemon(name).then((data)=>{
-      this.pokemon = data;
-      var pokeId =this.pokemon.id.split('.')[0]; //TODO:Once data is fixed take out split
+    this.pokeService.getAllPokemon(1,0,name).then((data)=>{
+      //this.pokemon = data;
+      var pokeId = data; //TODO:Once data is fixed take out split
       console.log(pokeId);
       this.sprite ='../../../assets/sprites/'+pokeId+'.png';
     });

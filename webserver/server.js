@@ -21,20 +21,19 @@ app.get('/pokemon/:limit/:offset/:name?', (req, res) => {
     let offset = req.params.offset;
     let limit = 100
     let name = '';
-    if(req.params.name)
+    if (req.params.name)
         name = req.params.name;
 
     query = `SELECT * FROM pokemon WHERE name LIKE '%${name}%' LIMIT ${limit} OFFSET ${offset}`;
 
     // Throw error and error status if the query fails
     // Send JSON data otherwise
-    pokeDB.query(query, function (err, rows, fields) {
+    pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon: ${limit}, ${offset}, ${name}`);
-        if (err){
+        if (err) {
             res.status(err).end();
             throw err;
-        }
-        else {
+        } else {
             res.send(rows);
             return rows;
         }
@@ -51,13 +50,12 @@ app.get('/pokemon-types/:id', (req, res) => {
 
     // Throw error and error status if the query fails
     // Send JSON data otherwise
-    pokeDB.query(query, function (err, rows, fields) {
+    pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon-types: ${id}`)
-        if (err){
+        if (err) {
             res.status(err).end();
             throw err;
-        }
-        else {
+        } else {
             res.send(rows);
             return rows;
         }
@@ -74,13 +72,12 @@ app.get('/pokemon-abilities/:id', (req, res) => {
 
     // Throw error and error status if the query fails
     // Send JSON data otherwise
-    pokeDB.query(query, function (err, rows, fields) {
+    pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon-abilities: ${id}`)
-        if (err){
+        if (err) {
             res.status(err).end();
             throw err;
-        }
-        else {
+        } else {
             res.send(rows);
             return rows;
         }
@@ -97,13 +94,12 @@ app.get('/pokemon-stats/:id', (req, res) => {
 
     // Throw error and error status if the query fails
     // Send JSON data otherwise
-    pokeDB.query(query, function (err, rows, fields) {
+    pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon-abilities: ${id}`)
-        if (err){
+        if (err) {
             res.status(err).end();
             throw err;
-        }
-        else {
+        } else {
             res.send(rows);
             return rows;
         }
@@ -113,20 +109,19 @@ app.get('/pokemon-stats/:id', (req, res) => {
 // Grab row count for pagination
 app.get('/count/:name?', (req, res) => {
     let name = '';
-    if(req.params.name)
+    if (req.params.name)
         name = req.params.name;
 
     query = `SELECT COUNT(*) as 'count' FROM pokemon WHERE name LIKE '%${name}%';`;
 
     // Throw error and error status if the query fails
     // Send JSON data otherwise
-    pokeDB.query(query, function (err, rows, fields) {
+    pokeDB.query(query, function(err, rows, fields) {
         console.log('Sending: ' + query)
-        if (err){
+        if (err) {
             res.status(err).end();
             throw err;
-        }
-        else {
+        } else {
             res.send(rows);
             return rows;
         }
@@ -139,5 +134,5 @@ app.get('/type/:id', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`)
+    console.log(`Listening at http://localhost:${port}`)
 })

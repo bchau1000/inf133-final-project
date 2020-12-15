@@ -44,11 +44,6 @@ export class PokemonService {
       return pokemon_arr;
     });
   }
-    getType(name:string):Promise<Array<any>> {
-      return this.requestData('/type/'+encodeURIComponent(name)).then((data) => {
-        return data.pokemon;
-      });
-    }
 
   getPokemonTypes(id:number):Promise<TypeData[]> {
     return this.requestData('/pokemon-types/' + id).then((data) => {
@@ -83,6 +78,11 @@ export class PokemonService {
         stats_arr.push(new StatData(data[i].stat_id, data[i].name, data[i].value))
         
       return stats_arr;
+    });
+  }
+  getType(name:string):Promise<Array<any>> {
+    return this.requestData('/type/'+encodeURIComponent(name)).then((data) => {
+      return data.pokemon;
     });
   }
 }

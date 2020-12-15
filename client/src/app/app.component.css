@@ -1,25 +1,21 @@
-.navbar-custom { 
+.navbar-custom {
     background-color: rgb(226, 28, 43);
-    
-    
 }
 
-.navbar-custom a{ 
+.navbar-custom a {
     color: white;
 }
 
-.navbar-nav{
+.navbar-nav {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
 }
 
-.md-form{
+.md-form {
     color: red;
 }
-
 
 img {
     max-width: 100%;
     max-height: 100%;
 }
-

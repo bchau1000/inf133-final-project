@@ -20,7 +20,7 @@ export class SlotComponent implements OnInit {
   constructor(private pokeService: PokemonService) { 
     //Initialize
     this.spoils ="";
-    this.pokemon = new PokemonData("test","test");
+    this.pokemon = new PokemonData(-1,"");
     this.spriteInit = "../../../assets/";
     this.rewards ="";
     this.slot1 = "../../../assets/defaultquestion.png"
@@ -79,9 +79,9 @@ export class SlotComponent implements OnInit {
   }
 
   getPokemon(name:string){
-    this.pokeService.getPokemon(name).then((data)=>{
-      this.pokemon = data;
-      var pokeId =this.pokemon.id.split('.')[0]; //TODO:Once data is fixed take out split
+    this.pokeService.getAllPokemon(1,0,name).then((data)=>{
+      //this.pokemon = data;
+      var pokeId = data;
       console.log(pokeId);
       this.spoils = '<h1><font color="brown">You won:</font></h1><a href="/entry/'+
       name+'"><img src="../../../assets/sprites/'+
