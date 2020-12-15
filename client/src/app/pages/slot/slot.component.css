@@ -1,9 +1,13 @@
+:host {
+    height: 24%;
+    width: 40%;
+}
+
 .slot-container {
-    width: 400px;
     padding-top: 10px;
     display:flex;
     flex-direction: column;
-    align-self:center;
+    align-items: center;
 }
 
 .slot-items-container {

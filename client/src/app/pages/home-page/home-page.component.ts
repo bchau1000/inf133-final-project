@@ -3,6 +3,7 @@ import { ActivatedRoute} from '@angular/router';
 import { PokemonService } from '../../services/pokemon.service'
 import { PokemonData } from '../../data/pokemon-data';
 
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -38,15 +39,6 @@ export class HomePageComponent implements OnInit {
 
     this.getPokemonCount(this.name);
     this.getAllPokemon(this.limit, this.offset, this.name);
-  }
-
-  changePage(command:string){
-    if(command == 'next') {
-      window.location.href = 'pokemon?limit=100&offset=' + (this.offset * 1 + 100) + '&name=' + this.name;
-    }
-    else{ 
-      window.location.href = 'pokemon?limit=100&offset=' + (this.offset - 100) + '&name=' + this.name;
-    }
   }
 
   getPokemonCount(name:string) {

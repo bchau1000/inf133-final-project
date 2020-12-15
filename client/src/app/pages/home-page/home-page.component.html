@@ -5,8 +5,8 @@
     </div>
 
     <div class="pagination" *ngIf="count > 1">
-      <a *ngIf="offset > 0" (click)="changePage('prev')">&laquo;</a>
-        <a href="pokemon?limit=100&offset={{(page - 1)*100}}&name={{name}}" *ngFor="let page of pages" [ngClass]="{active: (page - 1)*100 == offset}">{{page}}</a>
-      <a *ngIf="offset < (count-1)*100" (click)="changePage('next')">&raquo;</a>
+      <a [ngClass]="{disabled: offset == 0}" href="pokemon?limit=100&offset={{offset - 100}}&name={{name}}">&laquo;</a>
+      <a [ngClass]="{active: (page - 1)*100 == offset}" href="pokemon?limit=100&offset={{(page - 1)*100}}&name={{name}}" *ngFor="let page of pages">{{page}}</a>
+      <a [ngClass]="{disabled: offset >= (count-1)*100}" href="pokemon?limit=100&offset={{(offset*1) + 100}}&name={{name}}">&raquo;</a>
     </div>
 </div>

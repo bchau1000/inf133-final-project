@@ -8,6 +8,8 @@ a {
     width: 100px;
     background-color: rgb(29, 29, 29);
     border-radius: 4px;
+    border: 1px rgb(29, 29, 29);
+    animation: scaleUp ease 1s;
 }
 
 .pokemon-img {
@@ -26,6 +28,13 @@ a {
 }
 
 .pokemon-item:hover {
+    transition: 500ms;
     transform: scale(1.1);
     color: rgb(226, 28, 43);
+    border: 1px solid rgb(60, 60, 60);
+}
+
+@keyframes scaleUp {
+	0% { opacity: 0; }
+    100% { opacity: 1; }
 }

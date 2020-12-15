@@ -22,7 +22,7 @@ import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
