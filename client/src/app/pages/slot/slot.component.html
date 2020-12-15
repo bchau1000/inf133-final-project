@@ -1,19 +1,64 @@
 <style>
-    img {
-        border-radius: 25px;
+    .slot {
+        border-radius: 30px;
         background: grey;
-        border: 3px solid black;
+        border: 5px solid black;
         padding: 20px;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .slotDiv {
+        border-radius: 25px;
+        background-image: url("../../../assets/pikachu_background.gif");
+        background-color: rgb(250, 214, 29);
+        border: 7px solid black;
+        padding: 20px;
+        height: 335px;
+        width: 445px;
+        position: fixed;
+        top: 48%;
+        left: 50%;
+        margin-top: -100px;
+        margin-left: -200px;
+        text-align: center;
+    }
+    
+    button {
+        background-color: rgb(213, 30, 37);
+        border: 3px solid black;
+        color: white;
+        padding: 3px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+    
+    .title {
+        height: 325px;
+        width: 330px;
+        position: fixed;
+        top: 12%;
+        left: 54%;
+        margin-top: -100px;
+        margin-left: -200px;
+        text-align: center;
     }
 </style>
 
-<body>
-    <div style="text-align: center;">
-        <img src={{slot1}} class="solid " width="100 " height="100 " alt="slot1">
-        <img src={{slot2}} class="solid " width="100 " height="100 " alt="slot2">
-        <img src={{slot3}} class="solid " width="100 " height="100 " alt="slot3">
-    </div>
-    <div style="text-align: center;">
-        <button (click)="rand() " class="block">SPIN!!</button>
-    </div>
-</body>
+
+<img class="title" src="../../../assets/Title.png" alt="Title">
+<div class="slotDiv">
+
+    <img class="slot" src={{slot1}} alt="slot1">
+    <img class="slot" src={{slot2}} alt="slot2">
+    <img class="slot" src={{slot3}} alt="slot3">
+
+    <br>
+    <button (click)="rand() " class="block">SPIN!!</button>
+
+    <br>
+    <div [innerHtml]="spoils"></div>
+</div>

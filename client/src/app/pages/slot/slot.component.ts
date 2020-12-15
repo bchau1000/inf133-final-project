@@ -15,9 +15,11 @@ export class SlotComponent implements OnInit {
   types:string[];
   spriteInit:string;
   rewards:string;
+  spoils:string;
   
   constructor(private pokeService: PokemonService) { 
     //Initialize
+    this.spoils ="";
     this.pokemon = new PokemonData("test","test");
     this.spriteInit = "../../../assets/";
     this.rewards ="";
@@ -60,11 +62,15 @@ export class SlotComponent implements OnInit {
   winner(type:string){
     //Get Pokemon from type
     this.pokeService.getType(type).then((data)=>{
-      var rand = Math.floor(Math.random()*data.length);//Get random pokemon
-      this.rewards= data[rand].pokemon.name;//Only get pokemon name
-      console.log(this.rewards);
+    do{
+        var rand = Math.floor(Math.random()*data.length);//Get random pokemon
+        this.rewards= data[rand].pokemon.name;//Only get pokemon name
+        //console.log(this.rewards);
+    }while(this.rewards.includes('-'));//Run till the selected pokemon isnt a mega/gmax/event
       this.getPokemon(this.rewards);// Get pokemon info
+      alert("Congratulations!! You won a " + this.rewards.charAt(0).toUpperCase()+ this.rewards.slice(1)+"!!!");
     });
+
   }
 
   resetProb(){
@@ -75,8 +81,11 @@ export class SlotComponent implements OnInit {
   getPokemon(name:string){
     this.pokeService.getPokemon(name).then((data)=>{
       this.pokemon = data;
-      console.log(this.pokemon);
+      var pokeId =this.pokemon.id.split('.')[0]; //TODO:Once data is fixed take out split
+      console.log(pokeId);
+      this.spoils = '<h1><font color="brown">You won:</font></h1><a href="/entry/'+
+      name+'"><img src="../../../assets/sprites/'+
+      pokeId+'.png" alt="Spoils"></a>';
     });
   }
-
 }
