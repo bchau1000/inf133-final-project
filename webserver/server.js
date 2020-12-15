@@ -117,7 +117,6 @@ app.get('/count/:name?', (req, res) => {
     // Throw error and error status if the query fails
     // Send JSON data otherwise
     pokeDB.query(query, function(err, rows, fields) {
-        console.log('Sending: ' + query)
         if (err) {
             res.status(err).end();
             throw err;
@@ -128,9 +127,25 @@ app.get('/count/:name?', (req, res) => {
     })
 })
 
-app.get('/type/:id', (req, res) => {
-    var id = req.params.id;
-    requestData('https://pokeapi.co/api/v2/type/' + id, res);
+app.get('/types/:name', (req, res) => {
+    let name = req.params.name;
+        
+    query = `SELECT p.id, p.name
+            FROM pokemon_types as t JOIN pokemon_and_types as pt JOIN pokemon as p
+            WHERE p.id = pt.pokemon_id AND t.id = pt.type_id AND t.name='${name}';`;
+
+    // Throw error and error status if the query fails
+    // Send JSON data otherwise
+    pokeDB.query(query, function(err, rows, fields) {
+        console.log(`Sending to types: ${name}`)
+        if (err) {
+            res.status(err).end();
+            throw err;
+        } else {
+            res.send(rows);
+            return rows;
+        }
+    })
 })
 
 app.listen(port, () => {

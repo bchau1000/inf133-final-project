@@ -1,4 +1,4 @@
-import { Component, ModuleWithComponentFactories, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service'
 import { PokemonData} from '../../data/pokemon-data';
 
@@ -61,11 +61,10 @@ export class SlotComponent implements OnInit {
   }
   winner(type:string){
     //Get Pokemon from type
-    this.pokeService.getType(type).then((data)=>{
+    this.pokeService.getPokemonWithType(type).then((data)=>{
     do{
         var rand = Math.floor(Math.random()*data.length);//Get random pokemon
-        this.rewards= data[rand].pokemon.name;//Only get pokemon name
-        //console.log(this.rewards);
+        this.rewards= data[rand].name;//Only get pokemon name
     }while(this.rewards.includes('-'));//Run till the selected pokemon isnt a mega/gmax/event
       this.getPokemon(this.rewards);// Get pokemon info
       alert("Congratulations!! You won a " + this.rewards.charAt(0).toUpperCase()+ this.rewards.slice(1)+"!!!");
@@ -81,11 +80,10 @@ export class SlotComponent implements OnInit {
   getPokemon(name:string){
     this.pokeService.getAllPokemon(1,0,name).then((data)=>{
       //this.pokemon = data;
-      var pokeId = data;
-      console.log(pokeId);
+      var pokemon = data[0];
       this.spoils = '<h1><font color="brown">You won:</font></h1><a href="/entry/'+
-      name+'"><img src="../../../assets/sprites/'+
-      pokeId+'.png" alt="Spoils"></a>';
+      pokemon.name+'"><img src="../../assets/sprites/'+
+      pokemon.id+'.png" alt="Spoils"></a>';
     });
   }
 }

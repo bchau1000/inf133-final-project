@@ -40,7 +40,6 @@ export class PokemonService {
       for(let i = 0; i < length; i++)
         pokemon_arr.push(new PokemonData(data[i].id, data[i].name))
         
-
       return pokemon_arr;
     });
   }
@@ -80,9 +79,16 @@ export class PokemonService {
       return stats_arr;
     });
   }
-  getType(name:string):Promise<Array<any>> {
-    return this.requestData('/type/'+encodeURIComponent(name)).then((data) => {
-      return data.pokemon;
+
+  getPokemonWithType(name:string):Promise<PokemonData[]> {
+    return this.requestData('/types/'+ name).then((data) => {
+      var pokemon_arr: Array<PokemonData> = [];
+      var length = data.length
+      
+      for(let i = 0; i < length; i++)
+        pokemon_arr.push(new PokemonData(data[i].id, data[i].name))
+        
+      return pokemon_arr;
     });
   }
 }

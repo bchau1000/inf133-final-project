@@ -17,7 +17,6 @@ import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
     PokemonItemComponent,
     SlotComponent,
     PokeEntryComponent,
-
   ],
   imports: [
     BrowserModule,

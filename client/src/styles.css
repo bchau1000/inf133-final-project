@@ -1,13 +1,13 @@
-body {
-    display: flex;
+html, body {
+
     background-color: rgb(24, 24, 24); 
-    justify-content: center;
     font-family: rubik;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
 }
 
 app-root {
-    display: flex;
-    flex-direction: column;
     height: 100%;
     width: 100%;
 }
