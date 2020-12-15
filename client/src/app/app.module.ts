@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
 import { SlotComponent } from './pages/slot/slot.component';
+import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SlotComponent } from './pages/slot/slot.component';
     HomePageComponent,
     PokemonItemComponent,
     SlotComponent,
+    PokeEntryComponent,
 
   ],
   imports: [

@@ -5,7 +5,7 @@ export class PokemonData {
 
 
     constructor(name:string, url:string) {
-        this.id = url.split('/')[6];
+        this.id = url.split('/')[8];
         this.name = name[0].toUpperCase() + name.substring(1);
         this.url = url;
     }
