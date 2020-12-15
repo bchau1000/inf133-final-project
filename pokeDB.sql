@@ -19,7 +19,7 @@ CREATE DATABASE IF NOT EXISTS pokedb;
 --
 -- Table structure for table `pokemon`
 --
-
+USE pokedb;
 
 DROP TABLE IF EXISTS `pokemon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

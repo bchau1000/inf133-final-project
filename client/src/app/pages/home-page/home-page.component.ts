@@ -60,7 +60,6 @@ export class HomePageComponent implements OnInit {
       
       for(let i = 1; i <= this.count; i++)
         this.pages.push(i);
-
     });
   }
 

@@ -4,7 +4,6 @@ const app = express()
 const port = 3000
 
 const mysql = require('mysql');
-const { nextTick } = require('process');
 
 // Change user and password to your user/password
 const pokeDB = mysql.createConnection({
