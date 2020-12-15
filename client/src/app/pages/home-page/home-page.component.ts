@@ -11,55 +11,62 @@ import { PokemonData } from '../../data/pokemon-data';
 
 export class HomePageComponent implements OnInit {
   name:string;
-  pokemon:PokemonData;
   allPokemon:PokemonData[];
   offset:number;
   limit:number;
-  offsetValues = [0, 100, 200, 300, 400, 500, 600, 700, 800];
+  count:number;
+  pages:number[];
 
   constructor(private route:ActivatedRoute, private pokeService: PokemonService) { 
-    this.name ="pidgey";
-    
+    this.name = "";
     this.limit = 100;
     this.offset = 0;
-    this.pokemon = new PokemonData("-1", "-1");
+    this.count = 0;
+    this.pages = [];
     this.allPokemon = [];
   }
 
   ngOnInit(){
     this.route.queryParams.subscribe(params => {
-      if(params['limit'] === undefined || params['offset'] === undefined) {
-        this.limit = 100;
-        this.offset = 0;
-      } 
-      else {
+      // If all the parameters are defined, set them, otherwise leave them as default
+      if(params['limit'] && params['offset']) {
         this.limit = params['limit'];
         this.offset = params['offset'];
+        this.name = params['name'];
       }
-      
     });
 
-    this.getAllPokemon(this.limit, this.offset);
+    this.getPokemonCount(this.name);
+    this.getAllPokemon(this.limit, this.offset, this.name);
   }
 
   changePage(command:string){
     if(command == 'next') {
-      window.location.href = 'pokemon?limit=100&offset=' + (this.offset * 1 + 100);
+      window.location.href = 'pokemon?limit=100&offset=' + (this.offset * 1 + 100) + '&name=' + this.name;
     }
     else{ 
-      window.location.href = 'pokemon?limit=100&offset=' + (this.offset - 100);
+      window.location.href = 'pokemon?limit=100&offset=' + (this.offset - 100) + '&name=' + this.name;
     }
   }
 
-  getAllPokemon(limit:number, offset:number){
-    this.pokeService.getAllPokemon(limit, offset).then((data)=>{
-      this.allPokemon = data;
+  getPokemonCount(name:string) {
+    this.pokeService.getPokemonCount(name).then((data)=>{
+      this.count = data;
+
+      if(this.count%100 > 0)
+        this.count = Math.ceil(data/100);
+      else
+        this.count = Math.floor(data/100);
+      
+      for(let i = 1; i <= this.count; i++)
+        this.pages.push(i);
+
     });
   }
 
-  getPokemon(){
-    this.pokeService.getPokemon(this.name).then((data)=>{
-      this.pokemon = data;
+  getAllPokemon(limit:number, offset:number, name:string) {
+    this.pokeService.getAllPokemon(limit, offset, name).then((data)=>{
+      this.allPokemon = data;
     });
   }
 }

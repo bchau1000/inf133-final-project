@@ -4,9 +4,9 @@
         <app-pokemon-item *ngFor="let pokemon of allPokemon" [pokemon]="pokemon"> </app-pokemon-item>
     </div>
 
-    <div class="pagination">
+    <div class="pagination" *ngIf="count > 1">
       <a *ngIf="offset > 0" (click)="changePage('prev')">&laquo;</a>
-      <a href="pokemon?limit=100&offset={{page}}" *ngFor="let page of offsetValues" [ngClass]="{active: offset == page}">{{(page/100) + 1}}</a>
-      <a *ngIf="offset < 800" (click)="changePage('next')">&raquo;</a>
+        <a href="pokemon?limit=100&offset={{(page - 1)*100}}&name={{name}}" *ngFor="let page of pages" [ngClass]="{active: (page - 1)*100 == offset}">{{page}}</a>
+      <a *ngIf="offset < (count-1)*100" (click)="changePage('next')">&raquo;</a>
     </div>
 </div>
