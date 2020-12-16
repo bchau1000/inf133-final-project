@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
 import { SlotComponent } from './pages/slot/slot.component';
 import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
     PokemonItemComponent,
     SlotComponent,
     PokeEntryComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
