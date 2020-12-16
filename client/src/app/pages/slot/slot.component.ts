@@ -15,6 +15,7 @@ export class SlotComponent implements OnInit {
   types:string[];
   spriteInit:string;
   rewards:string;
+  showReward:boolean = false;
   spoils:string;
   
   constructor(private pokeService: PokemonService) { 
@@ -34,6 +35,8 @@ export class SlotComponent implements OnInit {
   }
 
   rand(){
+    this.spoils = "";
+    this.showReward = false;
     //Randomly pick types
     var rand = Math.floor(Math.random()*this.types.length); //Generate random index based on array length
     var randPity = rand; //Pity index to help with probabilities
@@ -67,7 +70,7 @@ export class SlotComponent implements OnInit {
         this.rewards= data[rand].name;//Only get pokemon name
     }while(this.rewards.includes('-'));//Run till the selected pokemon isnt a mega/gmax/event
       this.getPokemon(this.rewards);// Get pokemon info
-      alert("Congratulations!! You won a " + this.rewards.charAt(0).toUpperCase()+ this.rewards.slice(1)+"!!!");
+      
     });
 
   }
@@ -75,15 +78,15 @@ export class SlotComponent implements OnInit {
   resetProb(){
     this.types = ["Bug","Dark","Dragon","Electric","Fairy","Fighting","Fire","Flying","Ghost","Grass","Ground","Ice"
     ,"Normal","Poison","Psychic","Rock","Steel","Water"];
+    
   }
 
   getPokemon(name:string){
     this.pokeService.getAllPokemon(1,0,name).then((data)=>{
-      //this.pokemon = data;
-      var pokemon = data[0];
-      this.spoils = '<h1><font color="brown">You won:</font></h1><a href="/entry/'+
-      pokemon.name+'"><img src="../../assets/sprites/'+
-      pokemon.id+'.png" alt="Spoils"></a>';
+      this.pokemon = data[0];
+
+      this.spoils = '../../../assets/sprites/' + this.pokemon.id + '.png';
+      this.showReward = true;
     });
   }
 }

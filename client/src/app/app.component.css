@@ -1,29 +1,4 @@
-.navbar-custom {
-    background-color: rgb(226, 28, 43);
-}
-
-.navbar-custom a {
-    color: white;
-}
-
-.navbar-nav {
+.center {
     display: flex;
-    flex-direction: row;
-}
-
-a:hover{
-    color: yellow;
-}
-
-.md-form {
-    color: red;
-}
-
-.container-fluid {
-    display: flex; 
-    justify-content:center; 
-    align-items:center;
-
-    width: 100%;
-    height: 100%;
+    justify-content: center;
 }

@@ -1,12 +1,6 @@
 html, body {
-    display: flex;
-    flex-direction: column;
     background-color: rgb(24, 24, 24); 
     font-family: rubik;
-
-    min-height: 100vh;
-    height: auto;
-    margin: 0;
 }
 
 ::-webkit-scrollbar {

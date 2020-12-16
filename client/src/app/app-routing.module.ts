@@ -6,13 +6,9 @@ import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
 
 const routes: Routes = [
   { path: 'pokemon', component: HomePageComponent},
-  {
-    path: '',
-    redirectTo: 'pokemon',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
   { path: 'slot', component: SlotComponent},
-  { path: 'entry/:id', component: PokeEntryComponent} //id = pokemon's name
+  { path: 'entry', component: PokeEntryComponent}
 ];
 
 @NgModule({
