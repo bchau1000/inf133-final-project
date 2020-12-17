@@ -1,5 +1,5 @@
 # Description
-PokéGacha is an Angular project hosted on an ExpressJS webserver. Data is stored in a MySQL database.
+PokéGacha is an Angular project hosted on an ExpressJS webserver. Data is stored in a MySQL database. All data is taken from https://pokeapi.co/
 
 # How to run
 1. Install MySQL. We used the latest version MySQL 8.0
