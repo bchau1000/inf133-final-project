@@ -10,10 +10,10 @@ fieldset {
     border-color: 10px solid black;
     width: 700px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgb(255, 239, 239);
 }
 
-img {
+.sprite {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -24,7 +24,63 @@ img {
     border: 5px solid black;
 }
 
+.type {
+    border-radius: 25px;
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+    /* Fire Fox */
+    background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet);
+    /* Standard*/
+    border: 3px solid black;
+    text-align: center;
+}
+
 .des {
     background: rgba(202, 231, 193, 0.5);
     border: 5px solid black;
+}
+
+progress {
+    text-align: center;
+    height: 1.5em;
+    width: 100%;
+    -webkit-appearance: none;
+    border: 2px solid black;
+    position: relative;
+}
+
+progress::-moz-progress-bar {
+    background: lightcolor;
+}
+
+progress.hp::-webkit-progress-value {
+    background: rgb(55, 140, 63);
+}
+
+progress.atk::-webkit-progress-value {
+    background: rgb(252, 167, 38);
+}
+
+progress.def::-webkit-progress-value {
+    background: rgb(83, 193, 235);
+}
+
+progress.spAtk::-webkit-progress-value {
+    background: rgb(211, 59, 69);
+}
+
+progress.spDef::-webkit-progress-value {
+    background: rgb(59, 14, 143);
+}
+
+progress.spd::-webkit-progress-value {
+    background: rgb(146, 175, 198);
+}
+
+progress::-webkit-progress-bar {
+    background: rgb(255, 239, 239);
+}
+
+label {
+    padding-right: 40px;
+    font-size: 1rem;
 }

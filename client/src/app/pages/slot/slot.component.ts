@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service'
 import { PokemonData} from '../../data/pokemon-data';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-slot',
@@ -17,9 +18,10 @@ export class SlotComponent implements OnInit {
   rewards:string;
   showReward:boolean = false;
   spoils:string;
-  
-  constructor(private pokeService: PokemonService) { 
+  urlEntry:string;
+  constructor(private pokeService: PokemonService,) { 
     //Initialize
+    this.urlEntry ="";
     this.spoils ="";
     this.pokemon = new PokemonData(-1,"");
     this.spriteInit = "../../../assets/";
@@ -86,8 +88,10 @@ export class SlotComponent implements OnInit {
       this.pokemon = data[0];
 
       this.spoils = '../../../assets/sprites/' + this.pokemon.id + '.png';
+      this.urlEntry ='entry/'+this.pokemon.name;
       this.showReward = true;
       this.pokeService.sendSpoils(1, this.pokemon.id);
+
     });
   }
 }
