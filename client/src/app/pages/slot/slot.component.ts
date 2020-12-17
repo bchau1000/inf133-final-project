@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service'
 import { PokemonData} from '../../data/pokemon-data';
-import { url } from 'inspector';
 
 @Component({
   selector: 'app-slot',
