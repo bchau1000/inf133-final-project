@@ -9,12 +9,10 @@ import { PokemonService } from '../../services/pokemon.service';
 })
 
 export class PokemonItemComponent implements OnInit {
-  @Input() pokemon:PokemonData;
-  id:number;
+  @Input() pokemon!: PokemonData;
+  id!:number;
 
   constructor(private pokeService: PokemonService) {
-    this.pokemon = new PokemonData(-1, '-1');
-    this.id = -1;
   }
 
   getPokemonType(id:number) {

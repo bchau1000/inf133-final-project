@@ -12,7 +12,7 @@ import { PokemonData } from '../../data/pokemon-data';
 
 export class HomePageComponent implements OnInit {
   allPokemon:PokemonData[] = [];
-  name:string = "";
+  name:string = '';
 
   offset:number = 0;
   limit:number = 100;

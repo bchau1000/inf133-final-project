@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
+import { PokemonService } from '../../services/pokemon.service'
 
 @Component({
   selector: 'app-my-pokemon-page',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPokemonPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute, private pokeService: PokemonService) {
+  }
 
   ngOnInit(): void {
   }
 
-  
+  getPokemon() {
+    this.pokeService.getPokemon(1).then(data => {
+
+    });
+  }
 }

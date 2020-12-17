@@ -1,1 +1,18 @@
-<p>pokemon-page works!</p>
+<div class="body">
+    <div class="pokemon-container">
+        <img *ngIf="pokemon.id > 0" class="pokemon-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png">
+        <span class="pokemon-label">{{pokemon.name}}</span>
+        <div class="pokemon-types-container">
+            <div *ngFor="let type of types" class="pokemon-type" style="background-color: #{{type.color}}">{{type.name}}</div>
+        </div>
+        <span class="stats-divider">Base Stats</span>
+        <div class="pokemon-stats-container">
+            <div *ngFor="let stat of stats" class="pokemon-stat">
+                <span class="stat-label">{{stat.shortName}}</span>
+                <div class="stat-bar w3-round-xlarge">
+                    <div class="bar w3-container w3-center w3-round-xlarge" style="width:{{stat.percent}}%;background-color:{{stat.color}}">{{stat.value}}/255</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
