@@ -42,14 +42,14 @@ export class SlotPageComponent implements OnInit {
     var randPity = rand; //Pity index to help with probabilities
     this.slot1 =this.spriteInit+this.types[rand]+".png"; //Set type to slot1
     var slot1Type = this.types[rand];
-    //Push in same type into the array to give user higher chance of landing the same type (7/25) = 28%
-    for(var i =0;i<6;i++)
+    //Push in same type into the array to give user higher chance of landing the same type (17/35) = 48%
+    for(var i =0;i<16;i++)
       this.types.push(this.types[randPity]);
     //Slot 3 has lower chance than slot 2 so it comes first
     rand = Math.floor(Math.random()*this.types.length);
     this.slot3 =this.spriteInit+this.types[rand]+".png";
     var slot3Type = this.types[rand];
-    //Push in same type into the array to give user higher chance of landing the same type (15/33) = 45%
+    //Push in same type into the array to give user higher chance of landing the same type (25/41) = 61%
     for(var i =0;i<8;i++)
       this.types.push(this.types[randPity]);
     //Slot 2 has the highest chance of repeating
