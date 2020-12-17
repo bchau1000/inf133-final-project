@@ -17,7 +17,7 @@ export class PokemonService {
     return Promise.resolve(this.http.get(this.baseUrl + endpoint).toPromise());
   }
 
-  // Grab a single pokemon as a pokemon object given their id
+  // Return a single pokemon as a pokemon object given their id
   getPokemon(id:number):Promise<PokemonData> {
     var request = '/single-pokemon/' + id;
 
@@ -26,7 +26,7 @@ export class PokemonService {
     });
   }
 
-  // Grab the row count from the query without limit for pagination
+  // Return the row count from the query without limit for pagination
   getPokemonCount(name:string):Promise<number> {
     var request = '/count/' + name
 
@@ -35,7 +35,7 @@ export class PokemonService {
     });
   }
 
-  // Grab an array of pokemon objects given query parameters
+  // Return an array of pokemon objects given query parameters
   getAllPokemon(limit:number, offset:number, name:string):Promise<PokemonData[]> {
     var request = '/pokemon/' + limit + '/' + offset;
 
@@ -53,7 +53,7 @@ export class PokemonService {
     });
   }
 
-  // Grab a pokemon's types as an array of type objects
+  // Return a pokemon's types as an array of type objects
   getPokemonTypes(id:number):Promise<TypeData[]> {
     return this.requestData('/pokemon-types/' + id).then((data) => {
       var types_arr: Array<TypeData> = [];
@@ -66,7 +66,7 @@ export class PokemonService {
     });
   }
 
-  // Grab a pokemon's stats as an array of stat objects
+  // Return a pokemon's stats as an array of stat objects
   getPokemonStats(id:number):Promise<StatData[]> {
     return this.requestData('/pokemon-stats/' + id).then((data) => {
       var stats_arr: Array<StatData> = [];
@@ -79,7 +79,7 @@ export class PokemonService {
     });
   }
 
-  // Grab an array of pokemon objects given a pokemon type
+  // Return an array of pokemon objects given a pokemon type
   getPokemonWithType(name:string):Promise<PokemonData[]> {
     return this.requestData('/types/'+ name).then((data) => {
       var pokemon_arr: Array<PokemonData> = [];
@@ -87,6 +87,19 @@ export class PokemonService {
       
       for(let i = 0; i < length; i++)
         pokemon_arr.push(new PokemonData(data[i].id, data[i].name))
+        
+      return pokemon_arr;
+    });
+  }
+
+  // Return an array of user's unlocked pokemon as pokemon objects given the user's id
+  getSpoils(id:number):Promise<PokemonData[]> {
+    return this.requestData('/pokemon-unlocked/'+ id).then((data) => {
+      var pokemon_arr: Array<PokemonData> = [];
+      var length = data.length
+      
+      for(let i = 0; i < length; i++)
+        pokemon_arr.push(new PokemonData(data[i].pokemon_id, data[i].name))
         
       return pokemon_arr;
     });
