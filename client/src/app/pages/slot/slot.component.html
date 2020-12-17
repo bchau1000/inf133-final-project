@@ -1,8 +1,10 @@
 <div class='slot-container'>
     <div class="slot-spoils-container">
         <span *ngIf="showReward">Congratulations! You won a {{pokemon.name}}.</span>
-        <img *ngIf="showReward" src={{spoils}}>
-        
+        <a *ngIf="showReward" href={{urlEntry}}>
+            <img src={{spoils}}>
+        </a>
+
     </div>
     <div class="slot-items-container">
         <img class="slot-item slot-item-left" src={{slot1}} alt="slot1">

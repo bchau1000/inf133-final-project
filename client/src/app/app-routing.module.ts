@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'pokemon', component: HomePageComponent},
   { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
   { path: 'slot', component: SlotComponent},
-  { path: 'entry', component: PokeEntryComponent}
+  { path: 'entry/:id', component: PokeEntryComponent}
 ];
 
 @NgModule({

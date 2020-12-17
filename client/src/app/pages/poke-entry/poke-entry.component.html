@@ -1,4 +1,3 @@
-
 <br>
 
 <body>
@@ -14,10 +13,34 @@
                 </div>
                 <br>
                 <div class="des">
-                    <p>DATA</p>
-                    <p>DATA</p>
-                    <p>DATA</p>
-                    <p>DATA</p>
+                    <div>
+                        <br>
+                        <p class="type">{{this.type}}</p>
+                    </div>
+                    <div>
+                        <label for="hp">HP</label>
+                        <progress class="hp" id="hp" value={{this.hp}} max="300">50%</progress>
+                    </div>
+                    <div>
+                        <label for="atk">ATK</label>
+                        <progress class="atk" id="atk" value={{this.atk}} max="300"></progress>
+                    </div>
+                    <div>
+                        <label for="def">DEF</label>
+                        <progress class="def" id="def" value={{this.def}} max="300"></progress>
+                    </div>
+                    <div>
+                        <label for="spAtk">SP-ATK</label>
+                        <progress class="spAtk" id="spAtk" value={{this.spAtk}} max="300"></progress>
+                    </div>
+                    <div>
+                        <label for="spDef">SP-DEF</label>
+                        <progress class="spDef" id="spDef" value={{this.spDef}} max="300"></progress>
+                    </div>
+                    <div>
+                        <label for="spd">SPD</label>
+                        <progress class="spd" id="spd" value={{this.spd}} max="300"></progress>
+                    </div>
                 </div>
             </div>
         </fieldset>
