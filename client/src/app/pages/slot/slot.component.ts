@@ -87,6 +87,7 @@ export class SlotComponent implements OnInit {
 
       this.spoils = '../../../assets/sprites/' + this.pokemon.id + '.png';
       this.showReward = true;
+      this.pokeService.sendSpoils(1, this.pokemon.id);
     });
   }
 }

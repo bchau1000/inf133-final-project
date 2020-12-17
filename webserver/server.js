@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 
@@ -15,6 +16,8 @@ const pokeDB = mysql.createConnection({
 
 pokeDB.connect();
 app.use(cors('http://localhost:4200'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Use parameters to perform queries in MySQL database, providing name is optional
 app.get('/pokemon/:limit/:offset/:name?', (req, res) => {
@@ -31,7 +34,7 @@ app.get('/pokemon/:limit/:offset/:name?', (req, res) => {
     pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon: ${limit}, ${offset}, ${name}`);
         if (err) {
-            res.status(err).end();
+            console.log(err);
             throw err;
         } else {
             res.send(rows);
@@ -53,29 +56,7 @@ app.get('/pokemon-types/:id', (req, res) => {
     pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon-types: ${id}`)
         if (err) {
-            res.status(err).end();
-            throw err;
-        } else {
-            res.send(rows);
-            return rows;
-        }
-    })
-})
-
-// Grab abilities for a given pokemon
-app.get('/pokemon-abilities/:id', (req, res) => {
-    let id = req.params.id;
-
-    query = `SELECT pa.ability_id, a.name
-            FROM pokemon_and_abilities as pa JOIN pokemon_abilities as a
-            WHERE pa.ability_id = a.id AND pa.pokemon_id = ${id};`;
-
-    // Throw error and error status if the query fails
-    // Send JSON data otherwise
-    pokeDB.query(query, function(err, rows, fields) {
-        console.log(`Sending to pokemon-abilities: ${id}`)
-        if (err) {
-            res.status(err).end();
+            console.log(err);
             throw err;
         } else {
             res.send(rows);
@@ -97,7 +78,7 @@ app.get('/pokemon-stats/:id', (req, res) => {
     pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to pokemon-abilities: ${id}`)
         if (err) {
-            res.status(err).end();
+            console.log(err);
             throw err;
         } else {
             res.send(rows);
@@ -118,7 +99,7 @@ app.get('/count/:name?', (req, res) => {
     // Send JSON data otherwise
     pokeDB.query(query, function(err, rows, fields) {
         if (err) {
-            res.status(err).end();
+            console.log(err);
             throw err;
         } else {
             res.send(rows);
@@ -139,11 +120,29 @@ app.get('/types/:name', (req, res) => {
     pokeDB.query(query, function(err, rows, fields) {
         console.log(`Sending to types: ${name}`)
         if (err) {
-            res.status(err).end();
+            console.log(err);
             throw err;
         } else {
             res.send(rows);
             return rows;
+        }
+    })
+})
+
+app.post('/insert/', (req, res) => {
+    let user_id = req.body.user_id;
+    let pokemon_id = req.body.pokemon_id;
+        
+    query = `INSERT INTO pokemon_and_users(pokemon_id, user_id) VALUES(${pokemon_id}, ${user_id});`;
+    
+
+    // Throw error and error status if the query fails
+    // Send JSON data otherwise
+    pokeDB.query(query, function(err, results, fields) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(`Inserted into pokemon_and_users: ${pokemon_id}, ${user_id}`)
         }
     })
 })
