@@ -1,12 +1,11 @@
+<app-pokemon-item-grid [allPokemon]="allPokemon" [pages] = "pages"> </app-pokemon-item-grid>
 
-<div class='pokemon-container'>
-    <div class="pokemon-grid">
-        <app-pokemon-item *ngFor="let pokemon of allPokemon" [pokemon]="pokemon"> </app-pokemon-item>
-    </div>
-
-    <div class="pagination" *ngIf="count > 1">
-      <a [ngClass]="{disabled: offset == 0}" href="pokemon?limit=100&offset={{offset - 100}}&name={{name}}">&laquo;</a>
-      <a [ngClass]="{active: (page - 1)*100 == offset}" href="pokemon?limit=100&offset={{(page - 1)*100}}&name={{name}}" *ngFor="let page of pages">{{page}}</a>
-      <a [ngClass]="{disabled: offset >= (count-1)*100}" href="pokemon?limit=100&offset={{(offset*1) + 100}}&name={{name}}">&raquo;</a>
-    </div>
+<div class="pagination-container">
+  <div class="pagination" *ngIf="count > 1">
+    <a [ngClass]="{disabled: offset == 0}" href="pokedex?limit=100&offset={{offset - 100}}&name={{name}}">&laquo;</a>
+    <a [ngClass]="{active: (page - 1)*100 == offset}" href="pokedex?limit=100&offset={{(page - 1)*100}}&name={{name}}" *ngFor="let page of pages">{{page}}</a>
+    <a [ngClass]="{disabled: offset >= (count-1)*100}" href="pokedex?limit=100&offset={{(offset*1) + 100}}&name={{name}}">&raquo;</a>
+  </div>
 </div>
+
+

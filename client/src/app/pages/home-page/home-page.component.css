@@ -2,27 +2,16 @@
   width:100%;
 }
 
-.pokemon-container {
-  padding-top: 10px;
+.pagination-container {
   display: flex;
-  flex-direction: column;
-}
-.pokemon-grid {
-  height: 100%;
   width: 100%;
-  display: grid;
   justify-content: center;
-  
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 100px);
 }
 
 .pagination {
-    padding-top: 10px;
-    display: inline-block;
-    align-self: center;
-    padding-bottom: 5px;
+  padding-top: 10px;
+  display: inline-flex;
+  padding-bottom: 5px;
 }
   
 .pagination a {
@@ -38,7 +27,6 @@
   cursor: default;
   opacity: 0;
 }
-
 
 .pagination a.active {
   background-color:rgb(226, 28, 43);

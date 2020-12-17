@@ -3,11 +3,11 @@ import { PokemonService } from '../../services/pokemon.service'
 import { PokemonData} from '../../data/pokemon-data';
 
 @Component({
-  selector: 'app-slot',
-  templateUrl: './slot.component.html',
-  styleUrls: ['./slot.component.css'],
+  selector: 'app-slot-page',
+  templateUrl: './slot-page.component.html',
+  styleUrls: ['./slot-page.component.css']
 })
-export class SlotComponent implements OnInit {
+export class SlotPageComponent implements OnInit {
   pokemon:PokemonData;
   slot1:string;
   slot2:string;

@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   }
 
   sendQuery(){
-    window.location.href='pokemon?limit=100&offset=0&name=' + this.query;
+    console.log(this.query)
+    window.location.href='pokedex?limit=100&offset=0&name=' + this.query;
   }
 }

@@ -7,18 +7,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { PokemonItemComponent } from './components/pokemon-item/pokemon-item.component';
-import { SlotComponent } from './pages/slot/slot.component';
-import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { SlotPageComponent } from './pages/slot-page/slot-page.component';
+import { MyPokemonPageComponent } from './pages/my-pokemon-page/my-pokemon-page.component';
+import { PokemonItemGridComponent } from './components/pokemon-item-grid/pokemon-item-grid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     PokemonItemComponent,
-    SlotComponent,
-    PokeEntryComponent,
     NavbarComponent,
+    PokemonPageComponent,
+    SlotPageComponent,
+    MyPokemonPageComponent,
+    PokemonItemGridComponent,
   ],
   imports: [
     BrowserModule,

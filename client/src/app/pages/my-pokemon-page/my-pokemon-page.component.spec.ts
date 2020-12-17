@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlotComponent } from './slot.component';
+import { MyPokemonPageComponent } from './my-pokemon-page.component';
 
-describe('SlotComponent', () => {
-  let component: SlotComponent;
-  let fixture: ComponentFixture<SlotComponent>;
+describe('MyPokemonPageComponent', () => {
+  let component: MyPokemonPageComponent;
+  let fixture: ComponentFixture<MyPokemonPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SlotComponent ]
+      declarations: [ MyPokemonPageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SlotComponent);
+    fixture = TestBed.createComponent(MyPokemonPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

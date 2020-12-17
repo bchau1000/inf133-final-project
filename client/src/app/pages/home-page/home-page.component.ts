@@ -11,34 +11,34 @@ import { PokemonData } from '../../data/pokemon-data';
 })
 
 export class HomePageComponent implements OnInit {
-  name:string;
-  allPokemon:PokemonData[];
-  offset:number;
-  limit:number;
-  count:number;
-  pages:number[];
+  allPokemon:PokemonData[] = [];
+  name:string = "";
+
+  offset:number = 0;
+  limit:number = 100;
+  
+  count:number = 0;
+  pages:number[] = [];
 
   constructor(private route:ActivatedRoute, private pokeService: PokemonService) { 
-    this.name = "";
-    this.limit = 100;
-    this.offset = 0;
-    this.count = 0;
-    this.pages = [];
-    this.allPokemon = [];
   }
 
   ngOnInit(){
     this.route.queryParams.subscribe(params => {
-      // If all the parameters are defined, set them, otherwise leave them as default
       if(params['limit'] && params['offset']) {
         this.limit = params['limit'];
         this.offset = params['offset'];
         this.name = params['name'];
       }
     });
-
     this.getPokemonCount(this.name);
     this.getAllPokemon(this.limit, this.offset, this.name);
+  }
+
+  getAllPokemon(limit:number, offset:number, name:string) {
+    this.pokeService.getAllPokemon(limit, offset, name).then((data)=>{
+      this.allPokemon = data;
+    });
   }
 
   getPokemonCount(name:string) {
@@ -52,12 +52,6 @@ export class HomePageComponent implements OnInit {
       
       for(let i = 1; i <= this.count; i++)
         this.pages.push(i);
-    });
-  }
-
-  getAllPokemon(limit:number, offset:number, name:string) {
-    this.pokeService.getAllPokemon(limit, offset, name).then((data)=>{
-      this.allPokemon = data;
     });
   }
 }

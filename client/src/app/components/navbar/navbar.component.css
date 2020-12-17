@@ -26,7 +26,6 @@
 .navbar-item-container {
     display: inline-flex;
     flex-direction: row;
-    
     justify-content: space-between;
 }
 
@@ -53,7 +52,7 @@
     align-items: center;
 
     font-family: rubik;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 
     text-decoration: none;

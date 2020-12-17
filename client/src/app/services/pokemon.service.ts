@@ -4,7 +4,6 @@ import { PokemonData } from '../data/pokemon-data';
 import { TypeData } from '../data/type-data';
 import { StatData } from '../data/stat-data';
 import { AbilityData } from '../data/ability-data';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -94,8 +93,6 @@ export class PokemonService {
   }
 
   sendSpoils(user_id:number, pokemon_id:number):void {
-
-    this.http.post<string>(this.baseUrl + '/insert/', { 'user_id': `${user_id}`, 'pokemon_id': `${pokemon_id}`}).subscribe(data => {
-    })
+    this.http.post<string>(this.baseUrl + '/insert/', { 'user_id': `${user_id}`, 'pokemon_id': `${pokemon_id}`}).subscribe(data => { })
   }
 }

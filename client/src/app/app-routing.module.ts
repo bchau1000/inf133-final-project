@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { SlotComponent } from './pages/slot/slot.component';
-import { PokeEntryComponent } from './pages/poke-entry/poke-entry.component';
+import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { MyPokemonPageComponent } from './pages/my-pokemon-page/my-pokemon-page.component';
+import { SlotPageComponent } from './pages/slot-page/slot-page.component';
 
 const routes: Routes = [
-  { path: 'pokemon', component: HomePageComponent},
-  { path: '', redirectTo: 'pokemon', pathMatch: 'full' },
-  { path: 'slot', component: SlotComponent},
-  { path: 'entry', component: PokeEntryComponent}
+  { path: 'pokedex', component: HomePageComponent},
+  { path: '', redirectTo: 'pokedex', pathMatch: 'full' },
+  { path: 'gacha', component: SlotPageComponent},
+  { path: 'pokemon/:pokemon_id', component: PokemonPageComponent},
+  { path: 'my-pokemon', component: MyPokemonPageComponent}
 ];
 
 @NgModule({
