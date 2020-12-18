@@ -9,6 +9,7 @@ export class StatData {
         this.value = value;
     }
 
+    // Shorten/abbreviate stat names for display
     get shortName(){
         if(this.name === 'Hp')
             return 'HP';
@@ -24,6 +25,7 @@ export class StatData {
             return 'SPD';
     } 
 
+    // Get colors for a pokemon's stats for display
     get color(){
         if(this.name === 'Hp')
             return '#d53a44';
@@ -40,6 +42,7 @@ export class StatData {
             
     }
 
+    // Max base stat value for any stat on a pokemon is 255, get the percentage of their stat from the max
     get percent() {
         return (this.value/255) * 100;
     }

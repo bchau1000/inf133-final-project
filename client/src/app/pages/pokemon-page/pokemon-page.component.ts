@@ -20,6 +20,7 @@ export class PokemonPageComponent implements OnInit {
     this.types = [];
     this.stats = [];
 
+    // Get the pokemon id from the url, use it to create a pokemon data object
     this.route.params.subscribe((params) => {
       this.getPokemon(params['pokemon_id']);
     });
@@ -29,6 +30,7 @@ export class PokemonPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Create a pokemon data object given its id
   getPokemon(id:number) {
     this.pokeService.getPokemon(id).then(data => {
       this.pokemon = data;
@@ -37,17 +39,17 @@ export class PokemonPageComponent implements OnInit {
     });
   }
 
+  // Grab the stats for the pokemon on this page
   getPokemonStats(id:number) {
     this.pokeService.getPokemonStats(id).then(data => {
       this.stats = data;
-      console.log(this.stats);
     });
   }
 
+  // Grab the types for the pokemon on this page
   getPokemonTypes(id:number) {
     this.pokeService.getPokemonTypes(id).then(data => {
       this.types= data;
-      console.log(this.types);
     });
   }
 }

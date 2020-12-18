@@ -7,6 +7,7 @@ export class TypeData {
         this.name = name;
     }
 
+    // Used to get pokemon color hex codes given their type
     get color() {
         var types = new Map([["bug", "A6B91A"], ["dark", "705746"], ["dragon", "6F35FC"], ["electric", "F7D02C"], ["fairy", "D685AD"],
                     ["fighting", "C22E28"], ["fire", "EE8130"], ["flying", "A98FF3"], ["ghost", "735797"], ["grass", "7AC74C"], ["ground", "E2BF65"], ["ice", "96D9D6"],

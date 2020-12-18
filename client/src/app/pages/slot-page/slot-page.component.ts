@@ -81,6 +81,7 @@ export class SlotPageComponent implements OnInit {
     
   }
 
+  // Get the info of the Pokemon the user won, store it in the database and display in the gacha machine
   getPokemon(name:string){
     this.pokeService.getAllPokemon(1,0,name).then((data)=>{
       this.pokemon = data[0];
