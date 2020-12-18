@@ -11,6 +11,7 @@ PokéGacha is an Angular project hosted on an ExpressJS webserver. Data is store
 3. Open up CMD and start MySQL using `mysql -u root -ppassword`, replace `root` and `password` with your respective user/password.
 
 4. Run the SQL script using `source /../inf133-final-project/pokeDB.sql`, replace the directory with where you downloaded the project. This will create and populate a database named `pokedb` with Pokémon data.
+    1. eg. `source C:/Users/Desktop/inf133-final-project/pokeDB.sql`
 
 5. Install Angular by running `npm install -g @angular/cli`
 
