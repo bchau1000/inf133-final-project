@@ -26,7 +26,7 @@ PokéGacha is an Angular project hosted on an ExpressJS webserver. Data is store
 - **Slot machine:** located in the gacha tab. A user can click spin to activate the slot machine. Once all the slots have the same element on display, the user will unlock 
   a new pokemon. All unlocked Pokémon will be displayed in the My Pokemon page the same fashion as the Pokédex
   
-- **My Pokémon page:** all the user's unlocked Pokémon are displayed here in the same fashion as the Pokédex
+- **My Pokémon page:** all the user's unlocked Pokémon are displayed here in the same fashion as the Pokédex. The database already has some unlocked Pokémon by default.
 
 - **Accounts/Users:** the app currently does not have a login/account creation system. All data is stored under an "admin" account for the time being.
 
