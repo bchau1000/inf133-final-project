@@ -27,3 +27,13 @@ PokéGacha is an Angular project hosted on an ExpressJS webserver. Data is store
   a new pokemon. All unlocked Pokémon will be displayed in the My Pokemon page the same fashion as the Pokédex
   
 - **My Pokémon page:** all the user's unlocked Pokémon are displayed here in the same fashion as the Pokédex
+
+# Contributions
+- **Pokédex:** Brian Chau
+- **Pokémon page:** Brian Chau, Boon Chantachaimongkon
+
+- **Slot machine:** Boon Chantachaimongkon
+  
+- **My Pokémon page:** Brian Chau
+
+- **MySQL Database:** Brian Chau, Boon Chantachaimongkon
